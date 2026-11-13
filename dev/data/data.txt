@@ -1,0 +1,6 @@
+names = ['ant']
+animal based products = [3]
+nice food = [7]
+energy efficiency = [3]
+renewable energy = [3]
+trashing = [7]
