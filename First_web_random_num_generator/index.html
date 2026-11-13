@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RNG</title>
+  <style>
+    body {
+      background-color: rgb(214, 228, 229);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family:'Courier New', Courier, monospace
+    }
+
+    input { 
+      z-index: 3;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 20px;
+      width: 200px;
+      font-size:medium;
+    }
+
+    button {
+      z-index: 3;
+      padding: 10px;
+      width: 125px;
+      margin: 12.5px;
+      border-radius: 5px;
+    }
+
+    button:hover{
+      background-color: rgb(118, 106, 106);
+    }
+
+    .resulter{
+      z-index: 1;
+      font-size: 35px;
+      line-height:0;
+      color: rgb(68, 112, 208);
+    }
+
+        .titler{
+      font-size: 75px;
+    }
+
+    .move{
+      position: relative; top: 100px;
+    }
+
+    .box_res {
+  width: 1200px;
+  height: 50px;
+  background-color: lightblue;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 0;
+
+    }
+
+    .box_input {
+    width: 250px;
+    height: 200px;
+    right: -472px;
+    background-color: lightblue;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 2;
+    
+    }
+
+    .container{
+      position: relative;
+      height: 0;
+
+    }
+
+  </style>
+</head>
+<body>
+  <input id="from" class="move" type ="number" placeholder="from:">
+  <input id="to"class="move" type ="number" placeholder="to:">
+  <button class="move" onclick="random_gen()" >Generate</button> 
+  <p class="titler" style="position: relative; top: -350px;">Random Number Generator</p>
+  <p class="resulter" style="position:relative; bottom: 75px;" id="result"></p>
+
+  <div class="container">
+  <div class="box_res" style="position:relative; bottom: 157.5px;"></div>
+  <div class="box_input" style="position:relative; top: -540px;"></div>
+    </div>
+  <!--java_script-->
+<script>
+
+  function random_gen(){
+    const from = parseInt(document.getElementById("from").value);
+    const to = parseInt(document.getElementById("to").value);
+
+    if(from > to){
+    document.getElementById("result").textContent = "Error; Enter valid numbers: 'From' must be less than 'To'."
+    return;
+    }
+
+    if(isNaN(from) || isNaN(to)){
+    document.getElementById("result").textContent = "Error; Please enter a number"
+    return;
+    }
+    const random = Math.floor(Math.random() * (to-from+1)) + from;
+  
+    document.getElementById("result").textContent = "Result: " + random;
+  }
+
+</script>
+</body>
+</html>
